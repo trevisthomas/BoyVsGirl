@@ -1,3 +1,5 @@
+<%@page import="java.util.Collections"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@page import="com.bvg.*"%>
 
@@ -131,10 +133,6 @@
 	//photoSet = zenfolio.loadPhotoSetPhotos(code, pageNumber); //20547770
 	
 	PhotoSet photoSet = zenfolio.loadPhotoSet(code);
-	for(Photo p : photoSet.getPhotos()){
-		
-	}
-	
 	%>
 
 
@@ -151,7 +149,9 @@
 		<div id="container" class="clearfix">
 
 		<%
-		for(Photo p : photoSet.getPhotos()){
+		List<Photo> reverse = photoSet.getPhotos();
+		Collections.reverse(reverse);
+		for(Photo p : reverse){
 		%>
 			<div class="box photo col3">
 				<a class="fancybox"  target="_blank" data-title-id="<%=p.getUniqueName()%>" rel="group" href="<%=p.getXxLarge()%>"><img width="<%=p.getMediumWidth()%>" height="<%=p.getMediumHeight()%>" src="<%=p.getMedium()%>" alt="" /></a>
