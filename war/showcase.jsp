@@ -200,7 +200,7 @@ if(show==null){
 			<div class="box photo col3">
 				<a class="fancybox" data-title-id="<%=p.getUniqueName()%>" rel="group" href="<%=p.getXxLarge()%>"><img width="<%=p.getMediumWidth()%>" height="<%=p.getMediumHeight()%>" src="<%=p.getMedium()%>" alt="" /></a>
 				<div id="<%=p.getUniqueName()%>" class="hidden">
-					<%=p.getTitle()%> | <a href="<%=p.getPageUrl()%>">Buy</a>
+					<%=p.getTitle()%> <!-- | <a href="<%=p.getPageUrl()%>">Buy</a> -->
 				    <br/>
 				    <span class="fancybox-caption caption-<%=p.getUniqueName()%>">Loading...</span>
 				    <br/>

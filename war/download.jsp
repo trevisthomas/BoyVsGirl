@@ -180,7 +180,16 @@
 	<script src="js/jquery.infinitescroll.min.js"></script>
 	<script src="js/lightbox_resize.js"></script>
 	
-	
+	<script>
+		var $container = $('#container');
+
+		$container.imagesLoaded(function() {
+			$container.masonry({
+				itemSelector : '.box',
+				isAnimated : true
+			});
+		});
+	</script>
 	
 	
 	
