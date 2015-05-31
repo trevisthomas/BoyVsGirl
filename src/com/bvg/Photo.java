@@ -52,6 +52,16 @@ public class Photo {
 		return (int) scaleHeight;
 	}
 	
+	//1,550 pixels along the longest side for horizontal photos, 960
+	public int getXxLargeWidth(){
+		return 280;
+	}
+	
+	public int getXxLargeHeight(){
+		double scaleHeight	= getMediumWidth() / getAspectRatio();
+		return (int) scaleHeight;
+	}
+	
 	public double getAspectRatio(){
 		double origW = (Integer)rawPhoto.get("Width") ;
 		double origH = (Integer)rawPhoto.get("Height") ;
@@ -89,6 +99,17 @@ public class Photo {
 		return ((Integer)rawPhoto.get("Id")).toString();
 	}
 	
+	public String getPhotoSetIdOfPhoto(){
+		String pageUrl = (String) rawPhoto.get("PageUrl");
+		
+		if(pageUrl == null || pageUrl.indexOf("/p") < 0 || pageUrl.indexOf("/e") < 0){
+			return "";
+		}
+		else{
+			return pageUrl.substring(pageUrl.lastIndexOf("/p")+2, pageUrl.lastIndexOf("/e"));
+		}
+	}
+	
 	public String getCaption(){
 		String caption = (String) rawPhoto.get("Caption");
 		return caption != null ? caption : "";
@@ -102,6 +123,20 @@ public class Photo {
 	public String getCopyright(){
 		String copyright = (String) rawPhoto.get("Copyright"); 
 		return copyright != null ? copyright : "";
+	}
+	
+	public String getCreatorFromFileName(){
+		String filename = (String) rawPhoto.get("FileName");
+		String creator = "Boy vs Girl";
+		if(filename != null){
+			if(filename.contains("-C0")){
+				creator = "Chrissy";
+			}
+			else if(filename.contains("BvG-T")){
+				creator = "Trevis";
+			}
+		}
+		return creator;
 	}
 	
 	public String getUploadedOn(){
