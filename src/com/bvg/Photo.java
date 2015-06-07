@@ -54,12 +54,31 @@ public class Photo {
 	
 	//1,550 pixels along the longest side for horizontal photos, 960
 	public int getXxLargeWidth(){
-		return 280;
+		double origW = (Integer)rawPhoto.get("Width") ;
+		double origH = (Integer)rawPhoto.get("Height") ;
+		boolean landscape = origW > origH;
+		
+		if(landscape){
+			return 1550;
+		} else {
+			return (int) (960 / getAspectRatio());
+		}
 	}
 	
 	public int getXxLargeHeight(){
-		double scaleHeight	= getMediumWidth() / getAspectRatio();
-		return (int) scaleHeight;
+		//is it landscape?
+//		double scaleHeight	= getXxLargeWidth() / getAspectRatio();
+//		return (int) scaleHeight;
+		double origW = (Integer)rawPhoto.get("Width") ;
+		double origH = (Integer)rawPhoto.get("Height") ;
+		boolean landscape = origW > origH;
+		
+		if(landscape){
+			return (int) (1550 / getAspectRatio());
+		} else {
+			
+			return 960;
+		}
 	}
 	
 	public double getAspectRatio(){

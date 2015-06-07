@@ -255,7 +255,7 @@ if(show==null){
 		%>	
 			<div class="box">
 			<a class="fancybox" href="new_download.jsp?shootid=<%=p.getPhotoSetIdOfPhoto()%>#<%=p.getUniqueName()%>">
-				<img width="100%" src="<%=p.getXxLarge()%>" /><br>
+				<img style='max-height:960; max-width:100%;' src="<%=p.getXxLarge()%>" alt="<%=p.getTitle()%>" /><br>
 			</a>
 			<%=p.getCreatorFromFileName()%> | <%=p.getTitle()%> 
 			</div>

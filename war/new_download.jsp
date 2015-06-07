@@ -236,7 +236,7 @@
 		%>	
 			<div id="<%=p.getUniqueName()%>" class="box">
 			<a class="fancybox" target="_blank" href="<%=p.getXxLarge()%>">
-				<img width="100%" src="<%=p.getXxLarge()%>" /><br>
+				<img style='max-height:960; max-width:100%;' src="<%=p.getXxLarge()%>" alt="<%=p.getTitle()%>"/><br>
 			</a>
 			<%=p.getCreatorFromFileName()%> | <%=p.getTitle()%> 
 			</div>
