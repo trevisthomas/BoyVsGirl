@@ -14,13 +14,13 @@ import com.thetransactioncompany.jsonrpc2.*;
 
 public class ZenfolioService {
 	private static int requestID = 0;
-	private static int PAGE_SIZE = 24;
+	private static int PAGE_SIZE = 10;
 
 	public PhotoSet loadPhotoSet(String photoSetId) {
 		URL serverURL = null;
 
 		try {
-			serverURL = new URL("http://www.zenfolio.com/api/1.6/zfapi.asmx");
+			serverURL = new URL("http://www.zenfolio.com/api/1.8/zfapi.asmx");
 	
 			JsonSimpleSession mySession = new JsonSimpleSession(serverURL);
 			mySession.setConnectionConfigurator(new MyConnectionConfiguratorDude());
@@ -58,7 +58,7 @@ public class ZenfolioService {
 		URL serverURL = null;
 
 		try {
-			serverURL = new URL("http://www.zenfolio.com/api/1.6/zfapi.asmx");
+			serverURL = new URL("http://www.zenfolio.com/api/1.8/zfapi.asmx");
 	
 			JsonSimpleSession mySession = new JsonSimpleSession(serverURL);
 			mySession.setConnectionConfigurator(new MyConnectionConfiguratorDude());

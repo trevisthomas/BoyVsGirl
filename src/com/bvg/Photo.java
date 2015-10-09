@@ -115,7 +115,7 @@ public class Photo {
 	
 	public String getUniqueName(){
 //		return getPhotoNoSuffix().substring(getPhotoNoSuffix().lastIndexOf('/') + 1);
-		return ((Integer)rawPhoto.get("Id")).toString();
+		return ((Long)rawPhoto.get("Id")).toString();
 	}
 	
 	public String getPhotoSetIdOfPhoto(){
